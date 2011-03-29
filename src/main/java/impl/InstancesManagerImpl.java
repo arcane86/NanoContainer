@@ -131,6 +131,7 @@ public class InstancesManagerImpl implements InstancesManager {
 		return instance;
 	}
 
+	@SuppressWarnings("unchecked")
 	private <T> T construct(Class<T> bean) throws NanoContainerException {
 		T instance = null;
 		Constructor<?> constructor = this.getInjectionConstructor(bean);
@@ -158,6 +159,7 @@ public class InstancesManagerImpl implements InstancesManager {
 		return instance;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private <T> T produce(Class<T> bean, Producer producer) {
 		T instance = null;
 		Method method = producer.getMethod();

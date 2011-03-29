@@ -1,6 +1,5 @@
 package impl;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,10 +23,6 @@ public class RegistryImpl implements Registry {
 		this.bindings.put(type, binding);		
 	}
 	
-	public void addBinding(BeanType type, Class<?> implementation) throws NanoContainerException {
-		this.addBinding(new BindingImpl(type, implementation));
-	}
-	
 	public void addBindings(List<Binding> bindings) throws NanoContainerException {
 		for(Binding binding : bindings) {
 			this.addBinding(binding);
@@ -40,10 +35,6 @@ public class RegistryImpl implements Registry {
 			throw new NanoContainerException("The type " + type + " is already registred.");
 		}
 		this.producers.put(type, producer);
-	}
-	
-	public void addProducer(BeanType type, Method method) throws NanoContainerException {
-		this.addProducer(new ProducerImpl(type, method));
 	}
 	
 	public void addProducers(List<Producer> producers) throws NanoContainerException {

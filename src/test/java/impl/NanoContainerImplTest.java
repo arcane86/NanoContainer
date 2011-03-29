@@ -123,6 +123,7 @@ public class NanoContainerImplTest {
 		nanoContainer.getInstance(Interface1.class);
 	}
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testGetInstanceWithAnnotation() {
 		NanoContainer nanoContainer = new NanoContainerImpl();

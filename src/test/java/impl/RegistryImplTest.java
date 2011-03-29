@@ -42,13 +42,13 @@ public class RegistryImplTest {
 		exceptionRaised = false;
 		Assert.assertEquals(1, registry.size());
 		try {
-			registry.addBinding(new BeanTypeImpl(Interface1.class), Class1.class);
+			registry.addBinding(new BindingImpl(new BeanTypeImpl(Interface1.class), Class1.class));
 		} catch (NanoContainerException e) {
 			Assert.fail(e.getMessage());
 		}
 		Assert.assertEquals(2, registry.size());
 		try {
-			registry.addBinding(new BeanTypeImpl(Interface1.class), Class1.class);
+			registry.addBinding(new BindingImpl(new BeanTypeImpl(Interface1.class), Class1.class));
 		} catch (NanoContainerException e) {
 			exceptionRaised = true;
 		}
@@ -158,13 +158,13 @@ public class RegistryImplTest {
 		exceptionRaised = false;
 		Assert.assertEquals(1, registry.size());
 		try {
-			registry.addBinding(new BeanTypeImpl(Class1.class), Class1.class);
+			registry.addBinding(new BindingImpl(new BeanTypeImpl(Class1.class), Class1.class));
 		} catch (NanoContainerException e) {
 			Assert.fail(e.getMessage());
 		}
 		Assert.assertEquals(2, registry.size());
 		try {
-			registry.addBinding(new BeanTypeImpl(Class1.class), Class1.class);
+			registry.addBinding(new BindingImpl(new BeanTypeImpl(Class1.class), Class1.class));
 		} catch (NanoContainerException e) {
 			exceptionRaised = true;
 		}

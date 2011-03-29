@@ -7,12 +7,12 @@ import java.util.Set;
 
 public interface NanoContainer {
 
-	<T> T getInstance(BeanType beanType);
 	<T> T getInstance(Class<?> type);
-	<T> T getNewUnmanagedInstance(BeanType beanType);
 	<T> T getNewUnmanagedInstance(Class<?> type);
-	<T> T getNewProducerInstance(BeanType beanType);
 	<T> T getNewProducerInstance(Class<?> type);
+	<T> T getInstance(BeanType beanType);
+	<T> T getNewUnmanagedInstance(BeanType beanType);
+	<T> T getNewProducerInstance(BeanType beanType);
 	void register(Class<?> implementation);
 	InstancesManager getInstancesManager();
 	Registry getRegistry();
