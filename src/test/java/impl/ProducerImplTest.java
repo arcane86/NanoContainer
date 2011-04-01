@@ -9,6 +9,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import util.ClassWithProducers;
+import api.BeanType;
 import api.Producer;
 
 
@@ -72,14 +73,22 @@ public class ProducerImplTest {
 		Producer producer2 = new ProducerImpl(method.getReturnType(), new HashSet<Annotation>(), method);
 		Producer producer3 = new ProducerImpl(new BeanTypeImpl(method.getReturnType()), method);
 		Producer producer4 = producer1;
-		Assert.assertNotNull(producer1.getType());
-		Assert.assertNotNull(producer2.getType());
-		Assert.assertNotNull(producer3.getType());
-		Assert.assertNotNull(producer4.getType());
+		BeanType type = producer1.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(method.getReturnType()), type);
+		type = producer2.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(method.getReturnType()), type);
+		type = producer3.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(method.getReturnType()), type);
+		type = producer4.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(method.getReturnType()), type);
 	}
 
 	@Test
-	public void testGetImplementation() {
+	public void testGetMethod() {
 		Method method = null;
 		try {
 			method = ClassWithProducers.class.getMethod("intProducer24");
@@ -94,10 +103,18 @@ public class ProducerImplTest {
 		Producer producer2 = new ProducerImpl(method.getReturnType(), new HashSet<Annotation>(), method);
 		Producer producer3 = new ProducerImpl(new BeanTypeImpl(method.getReturnType()), method);
 		Producer producer4 = producer1;
-		Assert.assertNotNull(producer1.getMethod());
-		Assert.assertNotNull(producer2.getMethod());
-		Assert.assertNotNull(producer3.getMethod());
-		Assert.assertNotNull(producer4.getMethod());
+		Method methodStored = producer1.getMethod();
+		Assert.assertNotNull(methodStored);
+		Assert.assertEquals(method, methodStored);
+		methodStored = producer2.getMethod();
+		Assert.assertNotNull(methodStored);
+		Assert.assertEquals(method, methodStored);
+		methodStored = producer3.getMethod();
+		Assert.assertNotNull(methodStored);
+		Assert.assertEquals(method, methodStored);
+		methodStored = producer4.getMethod();
+		Assert.assertNotNull(methodStored);
+		Assert.assertEquals(method, methodStored);
 	}
 
 }

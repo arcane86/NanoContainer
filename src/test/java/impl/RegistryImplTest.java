@@ -218,9 +218,9 @@ public class RegistryImplTest {
 		} catch (NanoContainerException e) {
 			Assert.fail(e.getMessage());
 		}
-		Assert.assertTrue(registry.isRegistred(new BeanTypeImpl(Object.class)));
-		Assert.assertTrue(registry.isRegistred(new BeanTypeImpl(ClassProduced.class)));
-		Assert.assertFalse(registry.isRegistred(new BeanTypeImpl(Class1b.class)));
+		Assert.assertTrue(registry.isInjectable(new BeanTypeImpl(Object.class)));
+		Assert.assertTrue(registry.isInjectable(new BeanTypeImpl(ClassProduced.class)));
+		Assert.assertFalse(registry.isInjectable(new BeanTypeImpl(Class1b.class)));
 	}
 	
 	@Test

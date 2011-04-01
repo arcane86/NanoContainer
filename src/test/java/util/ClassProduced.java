@@ -1,6 +1,6 @@
 package util;
 
-public class ClassProduced {
+public class ClassProduced implements InterfaceProduced {
 	
 	private int value;
 	

@@ -7,20 +7,23 @@ import java.util.Set;
 
 public interface NanoContainer {
 
-	<T> T getInstance(Class<?> type);
-	<T> T getNewUnmanagedInstance(Class<?> type);
-	<T> T getNewProducerInstance(Class<?> type);
 	<T> T getInstance(BeanType beanType);
-	<T> T getNewUnmanagedInstance(BeanType beanType);
-	<T> T getNewProducerInstance(BeanType beanType);
-	void register(Class<?> implementation);
+	<T> T getInstance(Class<?> type);
 	InstancesManager getInstancesManager();
-	Registry getRegistry();
-	void stop();
-	void start();
-	Set<Annotation> getQualifiers(Class<?> implementation);
-	Set<Annotation> getQualifiers(Method method);
-	Set<Annotation> getQualifiers(Field field);
+	Set<Annotation> getInterceptorBindings(Class<?> implementation);
+	Set<Annotation> getInterceptorBindings(Method method);
+	Interceptor[] getInterceptors(BeanType type, Method method);
+	<T> T getNewProducerInstance(BeanType beanType);
+	<T> T getNewProducerInstance(Class<?> type);
+	<T> T getNewUnmanagedInstance(BeanType beanType);
+	<T> T getNewUnmanagedInstance(Class<?> type);
 	Set<Annotation> getQualifiers(Annotation[] annotations);
+	Set<Annotation> getQualifiers(Class<?> implementation);
+	Set<Annotation> getQualifiers(Field field);
+	Set<Annotation> getQualifiers(Method method);
+	Registry getRegistry();
+	void register(Class<?> implementation);
+	void start();
+	void stop();
 
 }

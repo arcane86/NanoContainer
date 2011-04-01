@@ -22,7 +22,7 @@ public class BeanTypeImplTest {
 	}
 
 	@Test
-	public void testEqualsObject() {
+	public void testEquals() {
 		BeanType beanType1 = new BeanTypeImpl(Object.class);
 		BeanType beanType2 = new BeanTypeImpl(Object.class, new HashSet<Annotation>());
 		BeanType beanType3 = beanType1;

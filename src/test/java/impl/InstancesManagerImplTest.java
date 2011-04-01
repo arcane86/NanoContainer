@@ -5,7 +5,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 
-public class InstancesManageImplTest {
+public class InstancesManagerImplTest {
 	
 	@Test
 	public void a() {

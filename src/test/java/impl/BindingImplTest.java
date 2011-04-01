@@ -7,6 +7,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import api.BeanType;
 import api.Binding;
 
 public class BindingImplTest {
@@ -39,10 +40,18 @@ public class BindingImplTest {
 		Binding binding2 = new BindingImpl(Object.class, new HashSet<Annotation>(), Object.class);
 		Binding binding3 = new BindingImpl(new BeanTypeImpl(Object.class), Object.class);
 		Binding binding4 = binding1;
-		Assert.assertNotNull(binding1.getType());
-		Assert.assertNotNull(binding2.getType());
-		Assert.assertNotNull(binding3.getType());
-		Assert.assertNotNull(binding4.getType());
+		BeanType type = binding1.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(Object.class), type);
+		type = binding2.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(Object.class), type);
+		type = binding3.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(Object.class), type);
+		type = binding4.getType();
+		Assert.assertNotNull(type);
+		Assert.assertEquals(new BeanTypeImpl(Object.class), type);
 	}
 
 	@Test
@@ -51,10 +60,18 @@ public class BindingImplTest {
 		Binding binding2 = new BindingImpl(Object.class, new HashSet<Annotation>(), Object.class);
 		Binding binding3 = new BindingImpl(new BeanTypeImpl(Object.class), Object.class);
 		Binding binding4 = binding1;
-		Assert.assertNotNull(binding1.getImplementation());
-		Assert.assertNotNull(binding2.getImplementation());
-		Assert.assertNotNull(binding3.getImplementation());
-		Assert.assertNotNull(binding4.getImplementation());
+		Class<?> implementation = binding1.getImplementation();
+		Assert.assertNotNull(implementation);
+		Assert.assertEquals(Object.class, implementation);
+		implementation = binding2.getImplementation();
+		Assert.assertNotNull(implementation);
+		Assert.assertEquals(Object.class, implementation);
+		implementation = binding3.getImplementation();
+		Assert.assertNotNull(implementation);
+		Assert.assertEquals(Object.class, implementation);
+		implementation = binding4.getImplementation();
+		Assert.assertNotNull(implementation);
+		Assert.assertEquals(Object.class, implementation);
 	}
 
 }

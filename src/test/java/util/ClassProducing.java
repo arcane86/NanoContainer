@@ -3,7 +3,7 @@ package util;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class ClassProducing {
+public class ClassProducing implements InterfaceProducing {
 	
 	@Inject
 	int integer24;

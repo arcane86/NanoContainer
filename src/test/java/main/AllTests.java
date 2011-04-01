@@ -2,7 +2,9 @@ package main;
 
 import impl.BeanTypeImplTest;
 import impl.BindingImplTest;
-import impl.InstancesManageImplTest;
+import impl.InstancesManagerImplTest;
+import impl.InterceptorBindingImpl;
+import impl.InterceptorBindingImplTest;
 import impl.NanoContainerImplTest;
 import impl.ProducerImplTest;
 import impl.RegistryImplTest;
@@ -16,8 +18,9 @@ import org.junit.runners.Suite.SuiteClasses;
 BeanTypeImplTest.class,
 BindingImplTest.class,
 ProducerImplTest.class,
+InterceptorBindingImplTest.class,
 RegistryImplTest.class,
-InstancesManageImplTest.class,
+InstancesManagerImplTest.class,
 NanoContainerImplTest.class,
 })
 public class AllTests {
